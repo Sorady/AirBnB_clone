@@ -22,9 +22,7 @@ The console or command interpreter
   This console will be a tool to validate this storage engine.
   #
 
-  [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
-![Console](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/console_airbnb.png)
+![Console]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/console_airbnb.png](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/2.png?raw=true))
 
 "Structure of the project"
 
@@ -154,23 +152,24 @@ The program will create a file called: `file.json` whenever you create a new mod
 
 Executing help command.
 
-![Help](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/help.gif)
+![Help]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/help.gif](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/3.gif?raw=true))
 
 Getting help for a command
 
-![Help update](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/help%20update.gif)
+![Help update]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/help%20update.gif](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/4.gif?raw=true))
 
 Creating a new user, showing the ID and updating the fields
 
-![Create & Update](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/create%20user%20and%20update.gif)
+![Create & Update](![image](https://github.com/Beshoy-Ayad/AirBnB_clone/assets/125706196/a1ca9b2b-cd45-498d-a6f1-7982730dc50e)
+)
 
 Creating a new basemodel, counting basemodel, delete and count again
 
-![Destroy](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/destroy.gif)
+![Destroy]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/destroy.gif](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/6.gif?raw=true))
 ```
 Authors
 ```
 `
- [Mahmoud Youssef Sdiek](https://github.com/MahmoudYoussefSdiek) & [Saliha Brik](https://github.com/salihabrik)
+ [Beshoy-Ayad](https://github.com/Beshoy-Ayad) & [Sorady](https://github.com/Sorady)
 
 ```
