@@ -1,63 +1,62 @@
 #!/usr/bin/python3
-"""Unit tests for BaseModel class"""
+"""Tests for the BaseModel class from test_bast_model.py"""
 
-import unittest
+
 from datetime import datetime
-from models.base_model import BaseModel
+import unittest
+import time
+import models
+BaseModel = models.base_model.BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
-    """Test cases for BaseModel class"""
+    """Tests for the BaseModel Class"""
 
-    def setUp(self):
-        """Set up the test environment"""
-        self.base_model = BaseModel()
+    def test_str(self):
+        """Tests for the __str__ function to check if the outputs are correct
+        """
+        model = BaseModel()
+        string = "[BaseModel] ({}) {}".format(model.id, model.__dict__)
+        self.assertEqual(string, str(model))
 
-    def test_instance_attributes(self):
-        """Test instance attributes"""
-        self.assertTrue(hasattr(self.base_model, 'id'))
-        self.assertTrue(hasattr(self.base_model, 'created_at'))
-        self.assertTrue(hasattr(self.base_model, 'updated_at'))
+    def test_save(self):
+        """Tests for the save function that it updates to the current time
+        """
+        model = BaseModel()
+        old_updated_at = model.updated_at
+        model.save()
+        self.assertNotEqual(old_updated_at, model.updated_at)
 
-    def test_instance_methods(self):
-        """Test instance methods"""
-        self.assertTrue(hasattr(self.base_model, '__str__'))
-        self.assertTrue(hasattr(self.base_model, 'save'))
-        self.assertTrue(hasattr(self.base_model, 'to_dict'))
+    def test_init_with_kwargs(self):
+        """Test __init__ method with keyword arguments"""
+        data = {
+            'id': '123',
+            'created_at': '2023-01-01T12:00:00.000000',
+            'updated_at': '2023-01-01T13:00:00.000000',
+            'custom_attr': 'test'
+        }
+        model = BaseModel(**data)
+        self.assertEqual(model.id, '123')
+        self.assertEqual(model.custom_attr, 'test')
+        self.assertEqual(model.created_at, datetime(2023, 1, 1, 12, 0, 0))
+        self.assertEqual(model.updated_at, datetime(2023, 1, 1, 13, 0, 0))
 
-    def test_str_method(self):
-        """Test __str__ method"""
-        string_representation = "[BaseModel] ({}) {}".format(
-            self.base_model.id, self.base_model.__dict__)
-        self.assertEqual(string_representation, str(self.base_model))
+    def test_init_without_kwargs(self):
+        """Test __init__ method without keyword arguments"""
+        model = BaseModel()
+        self.assertIsInstance(model.id, str)
+        self.assertIsInstance(model.created_at, datetime)
+        self.assertIsInstance(model.updated_at, datetime)
 
-    def test_save_method(self):
-        """Test save method"""
-        original_updated_at = self.base_model.updated_at
-        self.base_model.save()
-        self.assertNotEqual(original_updated_at, self.base_model.updated_at)
-
-    def test_to_dict_method(self):
-        """Test to_dict method"""
-        to_dict_result = self.base_model.to_dict()
-        self.assertEqual(type(to_dict_result), dict)
-        self.assertIn('__class__', to_dict_result)
-        self.assertIn('created_at', to_dict_result)
-        self.assertIn('updated_at', to_dict_result)
-        self.assertIn('id', to_dict_result)
-
-    def test_to_dict_updated_at(self):
-        """Test if updated_at is ISO formatted"""
-        to_dict_result = self.base_model.to_dict()
-        updated_at = self.base_model.updated_at.isoformat()
-        self.assertEqual(to_dict_result['updated_at'], updated_at)
-
-    def test_to_dict_created_at(self):
-        """Test if created_at is ISO formatted"""
-        to_dict_result = self.base_model.to_dict()
-        created_at = self.base_model.created_at.isoformat()
-        self.assertEqual(to_dict_result['created_at'], created_at)
-
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_to_dict(self):
+        """Test whether the to_dict method
+        correctly converts the instance attributes
+        to a dictionary representation
+        """
+        model = BaseModel()
+        model_dict = model.to_dict()
+        self.assertIsInstance(model_dict, dict)
+        self.assertEqual(model_dict['__class__'], 'BaseModel')
+        self.assertTrue('id' in model_dict)
+        self.assertTrue('created_at' in model_dict)
+        self.assertTrue('updated_at' in model_dict)
