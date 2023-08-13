@@ -152,11 +152,11 @@ The program will create a file called: `file.json` whenever you create a new mod
 
 Executing help command.
 
-![Help]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/help.gif](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/3.gif?raw=true))
+![Help]((https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/3.gif?raw=true))
 
 Getting help for a command
 
-![Help update]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/help%20update.gif](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/4.gif?raw=true))
+![Help update]((https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/4.gif?raw=true))
 
 Creating a new user, showing the ID and updating the fields
 
@@ -165,7 +165,7 @@ Creating a new user, showing the ID and updating the fields
 
 Creating a new basemodel, counting basemodel, delete and count again
 
-![Destroy]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/destroy.gif](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/6.gif?raw=true))
+![Destroy]((https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/6.gif?raw=true))
 ```
 Authors
 ```
