@@ -1,3 +1,10 @@
 #!/usr/bin/python3
+""""
+The module is responsible for creating an instance of the FileStorage class that can be used to store files in the application.
+""""
 
-#an empty file that indicates that the models directory is a Python package
+from models.engine.file_storage import FileStorage
+
+
+storage = FileStorage()
+storage.reload()
