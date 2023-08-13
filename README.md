@@ -22,7 +22,7 @@ The console or command interpreter
   This console will be a tool to validate this storage engine.
   #
 
-![Console]([https://github.com/daorejuela1/AirBnB_clone/blob/master/images/console_airbnb.png](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/2.png?raw=true))
+![Console](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/console_airbnb.png](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/2.png?raw=true))
 
 "Structure of the project"
 
