@@ -43,7 +43,7 @@ sudo apt-get install python3
 To have access to the console use the following command:
 
 ```
-git clone https://github.com/benkivuva/AirBnB_clone.git; cd AirBnB_clone
+git clone https://github.com/Beshoy-Ayad/AirBnB_clone.git; cd AirBnB_clone
 ```
 
 # Run
