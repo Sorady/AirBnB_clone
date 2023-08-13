@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 
+"""Class Base"""
+
 import models
 import uuid
 from datetime import datetime
 
-"""Developer: Sorady & Beshoy"""
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
-    """The BaseModel Class from which other classes are derived.
+    """BaseModel Class from which other classes are derived.
     """
 
     def __init__(self, *args, **kwargs):
-        """Initialization of the attributes
+        """Initialization of attributes
         """
         if kwargs:
             for key, value in kwargs.items():
@@ -29,9 +30,14 @@ class BaseModel:
             self.updated_at = self.created_at
         models.storage.new(self)
 
+        # unique identifier for each instance
+        # self.created_at = self.updated_at = datetime.now
+        # assigns the current datetime when a new instance is created.
+        # self.updated_at = datetime.now()
+        # assign the current time and update it when an object is changed.
 
     def __str__(self):
-        """String Representation of the BaseModel Class
+        """String Representation the BaseModel Class
 
         Returns:
             str: Prints [<class name>] (<self.id>) <self.__dict__>
