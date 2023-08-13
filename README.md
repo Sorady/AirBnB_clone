@@ -1,6 +1,6 @@
 # AirBnB_clone
 
-<img align="center" src="[https://i.ibb.co/d5N85Nh/hbnb.png](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/1.png?raw=true)">
+<img align="center" src="https://i.ibb.co/d5N85Nh/hbnb.png](https://github.com/Beshoy-Ayad/AirBnB_clone/blob/master/PIC/1.png?raw=true">
 
 
 # AirBnB clone - The console
