@@ -3,6 +3,7 @@
 The module is responsible for creating an instance of the FileStorage class that can be used to store files in the application.
 """"
 
+from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
