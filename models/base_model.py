@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 """Developer: Sorady & Beshoy"""
 
+import models
 import uuid
 from datetime import datetime
-from models import storage
-
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
+
+
 class BaseModel:
-    """
-    A base class for all models
-    
+    """The BaseModel Class from which other classes are derived.
     """
 
     def __init__(self, *args, **kwargs):
-        """Initialize a new instance of BaseModel"""
+        """Initialization of the attributes
+        """
         if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
@@ -27,22 +27,35 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
-        storage.new(self)
+        models.storage.new(self)
+
 
     def __str__(self):
-        """Return a string representation of the instance"""
-        return "[{}] ({}) {}".format(
-            self.__class__.__name__, self.id, self.__dict__)
+        """String Representation of the BaseModel Class
+
+        Returns:
+            str: Prints [<class name>] (<self.id>) <self.__dict__>
+        """
+        return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id,
+                                         self.__dict__)
 
     def save(self):
-        """Update the updated_at attribute with the current datetime"""
+        """The function updates the update_at instance with the current time
+        Calls the save method of storage
+        """
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
-        """Return a dictionary representation of the instance"""
-        result = self.__dict__.copy()
-        result["__class__"] = self.__class__.__name__
-        result["created_at"] = self.created_at.isoformat()
-        result["updated_at"] = self.updated_at.isoformat()
-        return result
+        """Convert instance attributes to a dictionary
+
+        Returns:
+            obj_dict: Dictionary representation
+        """
+        obj_dict = self.__dict__.copy()
+        if "created_at" in obj_dict:
+            obj_dict["created_at"] = obj_dict["created_at"].strftime(time)
+        if "updated_at" in obj_dict:
+            obj_dict["updated_at"] = obj_dict["updated_at"].strftime(time)
+        obj_dict["__class__"] = self.__class__.__name__
+        return obj_dict
