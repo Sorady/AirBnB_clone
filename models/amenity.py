@@ -1,19 +1,17 @@
 #!/usr/bin/python3
-"""Contains the amenity class"""
+"""
+    This module class that inherits from BaseModel.
+"""
 
-import models
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """Class Amenity which inherits from the BaseModel Class
-
-    Args:
-        BaseModel (_type_): _description_
     """
-    name = ""
+    Amenity Class.
 
-    def __init__(self, *args, **kwargs):
-        """Initialization of Amenity
-        """
-        super().__init__(*args, **kwargs)
+    Attributes:
+        name (str): The name of the amenity.
+    """
+
+    name = ""
