@@ -15,15 +15,13 @@ class TestAmenity(unittest.TestCase):
     Test the Amenity class.
     """
 
-    
     def test_instance_inheritance(self):
         """
         Test inheritance.
         """
         amenity = Amenity()
         self.assertIsInstance(amenity, BaseModel)
-    
-    
+
     def test_amenity_attributes(self):
         """
         Test the attributes of Amenity.
@@ -31,17 +29,15 @@ class TestAmenity(unittest.TestCase):
         amenity = Amenity()
         self.assertTrue(hasattr(amenity, "name"))
         self.assertEqual(amenity.name, "")
-    
-    
+
     def test_amenity_name(self):
         """
         Test the name attribute of Amenity.
         """
         amenity = Amenity()
         amenity.name = "WiFi and Power Outlets in Room for Laptops"
-        self.assertEqual(amenity.name, "WiFi and Power Outlets in Room for Laptops")
-    
-    
+        self.assertEqual(amenity.name, "WiFi&Power Outlets in Room for Laptop")
+
     def test_amenity_save(self):
         """
         Test the save method of Amenity.
@@ -49,8 +45,7 @@ class TestAmenity(unittest.TestCase):
         amenity = Amenity()
         amenity.save()
         self.assertNotEqual(amenity.created_at, amenity.updated_at)
-    
-    
+
     def test_amenity_to_dict(self):
         """
         Test the to_dict method of Amenity.
@@ -61,7 +56,6 @@ class TestAmenity(unittest.TestCase):
         self.assertIsInstance(amenity_dict["created_at"], str)
         self.assertIsInstance(amenity_dict["updated_at"], str)
         self.assertIsInstance(amenity_dict["id"], str)
-
 
     def test_amenity_str(self):
         """
