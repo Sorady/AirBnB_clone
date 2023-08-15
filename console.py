@@ -195,19 +195,20 @@ class HBNBCommand(cmd.Cmd):
             if key not in all_objs:
                 print("** no instance found **")
             elif len(args) == 2:
-                print("** attribute name missing **")
-            elif len(args) == 3:
-                print("** value missing **")
+                print("** dictionary representation missing **")
             else:
                 obj = all_objs[key]
-                attr_name = args[2]
-                attr_value = args[3].strip('"')
-                if hasattr(obj, attr_name):
-                    attr_type = type(getattr(obj, attr_name))
-                    setattr(obj, attr_name, attr_type(attr_value))
+                try:
+                    data = eval(args[2])
+                except (SyntaxError, NameError):
+                    print("** invalid dictionary representation **")
+                    return
+                if isinstance(data, dict):
+                    for k, v in data.items():
+                        setattr(obj, k, v)
                     obj.save()
                 else:
-                    print("** attribute doesn't exist **")
+                    print("** invalid dictionary representation **")
 
     def do_count(self, arg):
         """
