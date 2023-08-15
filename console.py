@@ -83,9 +83,13 @@ class HBNBCommand(cmd.Cmd):
         if "." in arg:
             args = arg.split(".")
             class_name = args[0]
-            method_name = args[1][:-2]
+            method_name = args[1].split("(")[0]
             if class_name in self.classes and method_name in methods:
-                methods[method_name](class_name)
+                if "(" in args[1] and ")" in args[1]:
+                    id_arg = args[1].split("(")[1].split(")")[0]
+                    methods[method_name](class_name + " " + id_arg)
+                else:
+                    methods[method_name](class_name)
             else:
                 print("** Unknown syntax: {} **".format(arg))
         else:
