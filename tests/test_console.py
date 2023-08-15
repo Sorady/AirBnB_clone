@@ -21,7 +21,7 @@ class TestHBNBCommand(unittest.TestCase):
         self.console = None
         try:
             os.remove("file.json")
-        except:
+        except: 
             pass
 
     def test_create(self):
