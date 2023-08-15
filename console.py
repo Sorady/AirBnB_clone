@@ -14,7 +14,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-import boto3
 
 
 class HBNBCommand(cmd.Cmd):
@@ -222,18 +221,6 @@ class HBNBCommand(cmd.Cmd):
                  if key.startswith(arg[0])]
                         )
             print(count)
-    ec2_client = boto3.client("ec2")
-    instance_id_filter = {
-            "Name": "instance-id",
-            "Values": ["i-1234567890abcdef0"]
-            }
-    response = ec2_client.describe_instances(Filters=[instance_id_filter])
-    for reservation in response["Reservations"]:
-        for instance in reservation["Instances"]:
-            print(f"Instance ID: {instance['InstanceId']}")
-            print(f"Instance state: {instance['State']['Name']}")
-            print(f"Instance type: {instance['InstanceType']}")
-            print(f"Instance public IP:{instance['PublicIpAddress']}")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
